@@ -125,6 +125,11 @@
 		logHandler = func;
 	};
 
+	// In case users want to override the log handler, but still keep a reference to the old one
+	Logger.getHandler = function () {
+		return logHandler;
+	};
+
 	// Sets the global logging filter level which applies to *all* previously registered, and future Logger instances.
 	// (note that named loggers (retrieved via `Logger.get`) can be configured independently if required).
 	Logger.setLevel = function(level) {
